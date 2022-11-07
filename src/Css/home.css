@@ -1,0 +1,341 @@
+/* START OF PARALLAX SECTION OF CSS */
+
+body {
+  margin: 0;
+} 
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* overflow: hidden; */
+  perspective: 10px;
+  box-shadow: 10px 10px 10px #333;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+  flex-direction: column;
+}
+
+.background {
+  transform: translateZ(-10px) scale(2);
+  background-image: url("../assets/images/background.png");
+}
+
+.foreground {
+  transform: translateZ(-5px) scale(1.5);
+  background-image: url("../assets/images/background-triangles.png");
+}
+
+.background,
+.foreground {
+  position: absolute;
+  height: 100%;
+  width: 105%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+
+}
+
+.title {
+  font-size: 7rem;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+.subtitle {
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+.language-button {
+  color: white;
+  text-decoration: none;
+
+}
+
+#lang-button {
+  margin-top: 5%;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.language-button:hover {
+  color: pink;
+}
+
+.btn {
+  border-radius: 200px;
+  padding: 15px;
+  background-color: #FA8887;
+
+  outline: 3px solid white;
+}
+
+.btn:hover {
+  background-color: #a85c5b;
+}
+
+.author-div {
+  display: flex;
+  justify-content: center;
+}
+
+.author {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5rem;
+}
+
+.intro-text {
+  text-align: center;
+}
+
+section {
+  font-size: 2rem;
+  padding: 2rem;
+  color: white;
+  background-color: #333;
+  opacity: 0.9;
+  background-image: linear-gradient(#575757 8px, transparent 8px), linear-gradient(90deg, #575757 8px, transparent 8px), linear-gradient(#575757 4px, transparent 4px), linear-gradient(90deg, #575757 4px, #333 4px);
+  background-size: 200px 200px, 200px 200px, 40px 40px, 40px 40px;
+  background-position: -8px -8px, -8px -8px, -4px -4px, -4px -4px;
+}
+
+
+.animate__animated.animate__fadeInUp {
+  animation-delay: 1000ms;
+}
+
+.animate__animated.animate__fadeInUp.author {
+  animation-delay: 1500ms;
+  animation-duration: 1000ms;
+}
+
+.animate__animated.animate__slideInDown {
+  animation-delay: 1000ms;
+}
+
+/* Parallax Section CSS end */
+
+/* Explanation Section CSS Start */
+
+.scroll-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+
+
+.first {
+  margin-right: auto;
+  margin-left: 0;
+  max-width: 100%;
+  min-width: auto;
+  text-align: center;
+}
+
+.second {
+  margin-left: auto;
+  margin-right: 0;
+  max-width: 65%;
+  min-width: auto;
+}
+
+.explanation-div {
+  display: flex;
+  background-color: gray;
+  max-width: 80%;
+  min-width: 60%;
+  align-items: center;
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  flex-direction: inherit;
+  height: auto;
+  padding: 25px;
+  border-radius: 67px;
+  background: linear-gradient(145deg, #2e2e2e, #373737);
+  box-shadow: 38px 38px 76px #141414,
+    -38px -38px 76px #525252;
+}
+
+#bc {
+  background-image: url('../assets/images/bostoncollege.png');
+  width: 500px;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.img-border {
+  background-color: rgb(194, 193, 193);
+  padding: 30px;
+  border-radius: 50%;
+
+}
+
+.img-border2 {
+  background-color: rgb(133, 132, 132);
+  padding: 30px;
+  border-radius: 50%;
+  margin-top: 30px;
+  box-shadow: 5px 10px rgb(133, 0, 0);
+}
+
+#map {
+  background-image: url('../assets/images/semcoremap.png');
+  aspect-ratio: 16/9;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 100px;
+  position: relative;
+
+}
+
+.map-border2 {
+  background-color: rgb(133, 132, 132);
+  margin: 0 auto;
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 67px;
+  background: linear-gradient(145deg, #2e2e2e, #373737);
+  box-shadow: 38px 38px 76px #141414,
+    -38px -38px 76px #525252;
+  max-width: 1500px;
+}
+
+.map-border {
+  background-color: rgb(194, 193, 193);
+  
+  padding: 30px;
+  border-radius: 100px;
+  text-align: center;
+  text-shadow: 0 0 8px black;
+}
+
+div.map-border h2 {
+  padding-top: 20px;
+  vertical-align: middle;
+}
+
+#bold-span-red {
+  color: rgb(164, 53, 53);
+  font-weight: 700;
+  text-shadow: -1px 1px 0 #000,
+    1px 1px 0 #000,
+    1px -1px 0 #000;
+
+}
+
+#bold-span-blue {
+  color: rgb(63, 112, 173);
+  font-weight: 700;
+  text-shadow: -1px 1px 0 #000,
+    1px 1px 0 #000,
+    1px -1px 0 #000;
+}
+
+.col-md-6 {
+  width: fit-content;
+}
+
+
+.me-border2 {
+  float: left;
+  background-color: rgb(88, 87, 87);
+  padding: 30px;
+  outline: 10px solid black;
+  width: max-content;
+  border-radius: 50%;
+  margin-top: 30px;
+}
+
+.me-border {
+  background-color: rgb(194, 193, 193);
+  width: auto;
+  padding: 30px;
+  border-radius: 50%;
+  text-align: center;
+  text-shadow: 0 0 8px black;
+  flex-basis: 70%;
+}
+
+#me {
+
+  background-image: url('../assets/images/me.PNG');
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  padding: 200px;
+  display: inherit;
+}
+.me-info-text {
+  width: 100%;
+  line-height: 4rem;
+}
+
+.text-2 {
+  width: 100%;
+  margin-left: auto;
+}
+
+a .linkedin {
+  color: white;
+}
+
+.linkedin {
+  font-size: 70px;
+}
+
+.form-link {
+  background-color: rgb(94, 94, 239);
+  color: white;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 50px;
+  outline: black solid 5px;
+}
+
+#contact-link {
+  min-width: 200px;
+  text-decoration: none;
+}
+
+.myLinks {
+  margin-top: 2.5%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content:space-around;
+}
+.myLinks a{
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+  color: white;
+  text-decoration: none;
+  background-color: #575757;
+  padding: 18px;
+  border-radius: 80px;
+}
+.myLinks a:hover{
+  background-color: #898989;
+
+}
