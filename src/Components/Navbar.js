@@ -7,6 +7,7 @@ import '../Css/navbar.css'
 
 
 function Navbar(props) {
+
     return(
          <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#343A40"}}>
             <div className="container-fluid">

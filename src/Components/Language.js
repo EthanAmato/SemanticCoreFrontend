@@ -5,39 +5,37 @@ import Histogram from './Histogram';
 
 function Language() {
   const [translations, setTranslations] = useState([]);
-  const [graph, setGraph] = useState();
+  const [graph, setGraph] = useState(<h2 className='subtitle'>Loading...</h2>);
   const [selector, setSelector] = useState();
   const currentSearchTerm = createRef();
   const [loading, setLoading] = useState(false);
-
   let paramObject = useParams();
   let language = paramObject.language;
 
   function search() {
-    fetch(`/api/translations/${language}?keyword=${currentSearchTerm.current.value}`)
+    fetch(`${process.env.REACT_APP_BACKEND_BASE}/api/translations/${language}?keyword=${currentSearchTerm.current.value}`)
       .then(async response => {
         const isJson = response.headers.get('content-type')?.includes('application/json');
         const data = isJson ? await response.json() : null;
 
         // check for error response
         if (!response.ok) {
-            // get error message from body or default to response status
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
+          // get error message from body or default to response status
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
         }
         return data;
       })
       .then(data => {
-        console.log(data)
-        selector.value = data[0].clusterLabels;
+        selector.value = data[0].cluster_labels;
         selector.dispatchEvent(new Event("change"));
         setTranslations(data);
       }).catch(e => {
-        if(e === 404){
+        if (e === 404) {
           currentSearchTerm.current.value = "";
           let errorSpan = document.getElementById("error");
           errorSpan.innerText = "Search term not found, please try another";
-          setTimeout(()=>{errorSpan.innerText = "";}, 2000)
+          setTimeout(() => { errorSpan.innerText = ""; }, 2000)
         }
       });
   }
@@ -66,15 +64,15 @@ function Language() {
     setLoading(true);
 
     const handleChange = (e) => {
-      console.log(e)
-      fetch(`/api/translations/${language}/${e.target.value}`)
+      console.log(e.target.value)
+      fetch(`${process.env.REACT_APP_BACKEND_BASE}/api/translations/${language}/${e.target.value}`)
         .then(response => response.json())
         .then(data => {
           setTranslations(data);
         });
     }
 
-    fetch(`/api/translations/${language}/0`)
+    fetch(`${process.env.REACT_APP_BACKEND_BASE}/api/translations/${language}/0`)
       .then(response => response.json())
       .then(data => {
         setTranslations(data);
@@ -114,10 +112,10 @@ function Language() {
               </div>
               <div className='row'>
                 <div class="d-flex search-bar">
-                  <input class="form-control me-2" ref={currentSearchTerm} type="search" placeholder="Search" aria-label="Search"/>
-                    <button class="btn btn-outline-success" type="submit" onClick={search}>Search</button>
+                  <input class="form-control me-2" ref={currentSearchTerm} type="search" placeholder="Search" aria-label="Search" />
+                  <button class="btn btn-outline-success" type="submit" onClick={search}>Search</button>
                 </div>
-                  <span id="error"></span>
+                <span id="error"></span>
               </div>
               <div className='row'>
                 {graph}
@@ -136,7 +134,7 @@ function Language() {
                           <tr key={entry.index}>
                             <td>{entry.label}</td>
                             <td>{entry.translated}</td>
-                            <td>{ensureNounClass(entry.nounClass)}</td>
+                            <td>{ensureNounClass(entry.noun_class)}</td>
                           </tr>
                         )
                       })}

@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import '../Css/home.css'
 import { Link } from 'react-router-dom';
 function Home() {
+    console.log(process.env.REACT_APP_BACKEND_BASE)
 
     return (
          
