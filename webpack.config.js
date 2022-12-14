@@ -1,8 +1,14 @@
 module.exports = {
-    resolve: {
-        fallback: {
-            "os": false,
-            "path": false
-        }
+    module: {
+      rules: [
+        {
+          test: /\.html$/i,
+          loader: "html-loader",
+          options: {
+            // Disables attributes processing
+            sources: false,
+          },
+        },
+      ],
     },
-}
+  };
