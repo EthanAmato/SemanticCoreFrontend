@@ -26,9 +26,7 @@ const currentLangs =  ['Arabic',
 
 
 root.render(
-  <React.StrictMode>
-      <CustomRouter langNames = {currentLangs} />
-  </React.StrictMode>
+    <CustomRouter langNames = {currentLangs} />
 );
 
 // If you want to start measuring performance in your app, pass a function
