@@ -45,12 +45,15 @@ function Language() {
       case "0":
       case "0.0":
         return "Masculine";
+        break;
       case "1":
       case "1.0":
         return "Feminine";
+        break;
       case "2":
       case "2.0":
         return "Neuter";
+        break;
       default:
         return nounClass;
     }
@@ -77,16 +80,17 @@ function Language() {
         response => {
           let langGraphModel = require(`../assets/graphs/bokeh/Translated${language}GoogleCloud.html`);
           setGraph(<iframe id='graph' type="text/html" srcDoc={langGraphModel.default} title={`${language} Graph`} />);
-          eventListener = document.getElementById("graph").contentDocument.querySelector("select.bk.bk-input");
-          setSelector(eventListener);
-          eventListener.addEventListener('change', handleChange);
-
-
-          setLoading(false);
+          setTimeout(() => {
+            eventListener = document.getElementById("graph").contentDocument.querySelector("select.bk.bk-input");
+            setSelector(eventListener);
+            eventListener.addEventListener('change', handleChange);
+          }, 1000) //most scuffed code ever lmao - essentially giving graph time to enter DOM
+          //so that eventListener can hook onto it
           return () => {
             eventListener.removeEventListener('change', handleChange); //prevent memory leak - essentially a componentWillUnmount
           }
         });
+    setLoading(false);
 
   }, []);
   return (
@@ -109,7 +113,7 @@ function Language() {
               </div>
               <div className='row'>
                 <div class="d-flex search-bar">
-                  <input class="form-control me-2" ref={currentSearchTerm} type="search" placeholder="Search for a specific noun" aria-label="Search" />
+                  <input class="form-control me-2" ref={currentSearchTerm} type="search" placeholder="Search" aria-label="Search" />
                   <button class="btn btn-outline-success" type="submit" onClick={search}>Search</button>
                 </div>
                 <span id="error"></span>
