@@ -45,15 +45,12 @@ function Language() {
       case "0":
       case "0.0":
         return "Masculine";
-        break;
       case "1":
       case "1.0":
         return "Feminine";
-        break;
       case "2":
       case "2.0":
         return "Neuter";
-        break;
       default:
         return nounClass;
     }
@@ -112,7 +109,7 @@ function Language() {
               </div>
               <div className='row'>
                 <div class="d-flex search-bar">
-                  <input class="form-control me-2" ref={currentSearchTerm} type="search" placeholder="Search" aria-label="Search" />
+                  <input class="form-control me-2" ref={currentSearchTerm} type="search" placeholder="Search for a specific noun" aria-label="Search" />
                   <button class="btn btn-outline-success" type="submit" onClick={search}>Search</button>
                 </div>
                 <span id="error"></span>

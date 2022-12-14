@@ -51,7 +51,7 @@ function Home() {
                                 Essentially, we looked at ~380,000 nouns from 19 languages from all over the
                                 world and calculated whether geographically distant languages with little
                                 contact:</p> <span id="bold-span-red">1. Assign noun classes (masculine, feminine, etc.)
-                                    based on semantics</span> and <span id="bold-span-blue">2. Whether this occur
+                                    based on semantics</span> and <span id="bold-span-blue">2. Whether this occurs
                                         consistently across many unrelated languages</span>
                             <p>
                                 If
