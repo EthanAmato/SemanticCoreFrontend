@@ -1,6 +1,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Histogram from './Histogram';
+import '../Css/languages.css'
 
 
 function Language() {
@@ -45,15 +46,12 @@ function Language() {
       case "0":
       case "0.0":
         return "Masculine";
-        break;
       case "1":
       case "1.0":
         return "Feminine";
-        break;
       case "2":
       case "2.0":
         return "Neuter";
-        break;
       default:
         return nounClass;
     }
@@ -99,7 +97,6 @@ function Language() {
         <div className='intro-text'>
           <div className="container-fluid">
             <div className="row languages-div language">
-
               <div className="background full" />
               <div className="foreground full" />
               <div className='scroll-container first'>
